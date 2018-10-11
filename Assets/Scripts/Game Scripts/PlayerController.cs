@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+	private bool inAir = false;	//toggle for when player is mid-jump
+	private bool sliding = false;	//toggle for while player is mid-slide
+	
 	//component holders
 	GameMaster gm; //TODO remove if unused
 	Player thePlayer;
@@ -26,9 +29,28 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 
-	void Jump ()
+	public void Jump ()
 	{
-		rb.AddForce( new Vector2( 0, thePlayer.GetJump() ) ); //applies jump force in upward direction
 		//TODO create ground check to prevent mid-air jumps
+		if (!inAir)
+		{
+			rb.AddForce( new Vector2( 0, thePlayer.GetJump() ) ); //applies jump force in upward direction
+		}
+		else
+		{
+			//do nothing
+		}
+	}
+	
+	public void Slide ()
+	{
+		if (!sliding)
+		{
+			//TODO create slide functionality
+		}
+		else
+		{
+			//do nothing
+		}
 	}
 }

@@ -6,8 +6,10 @@ public class Player : MonoBehaviour
 {
 
 	//private, inspector variables
-	[SerializeField] int maxHealth = 10; //player max hp
-	[SerializeField] float jumpPower = 10f; //determines upward force of jump
+	[Header("Player Settings")]
+	[Tooltip("Player's max HP")] [SerializeField] int maxHealth = 10;
+	[Tooltip("Upward force of jump")] [SerializeField] float jumpPower = 10f;
+	[Tooltip("Duration of slide action")] [SerializeField] float slideLength = 1f;
 
 	//private, hidden variables
 	private int curHealth; //player current hp
