@@ -6,6 +6,7 @@ public class GameMaster : MonoBehaviour
 {
 
 	//inspector variables
+	[SerializeField] bool enableAcceleration = true; //toggle for gameSpeed acceleration
 	[SerializeField] float gameSpeed = 1.0f; //holder for current object speed, determines inital speed of startup
 	[SerializeField] float acceleration = 0.1f; //amount speed is increased per update
 	[SerializeField] float scoreTime = 1f; //timer variable for updating score
@@ -18,7 +19,11 @@ public class GameMaster : MonoBehaviour
 
 	void Update ()
 	{
-		gameSpeed += acceleration; //increment object speed by acceleration
+		if (enableAcceleration)
+		{
+			gameSpeed += acceleration; //increment object speed by acceleration
+		}
+		
 		scoreTimer += Time.deltaTime; //increment time in real time
 
 		if(scoreTimer >= scoreTime) //when timer hits the right time
