@@ -1,0 +1,2 @@
+May need to increase gravity and jump power.
+Speed will need tuned.

@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-	private bool inAir = false;	//toggle for when player is mid-jump
-	private bool sliding = false;	//toggle for while player is mid-slide
+	//TODO Remove serialization after testing.
+	[SerializeField] private bool inAir = false;	//toggle for when player is mid-jump.
+	[SerializeField] private bool sliding = false;	//toggle for while player is mid-slide
 	
 	//component holders
 	GameMaster gm; //TODO remove if unused
@@ -31,10 +32,10 @@ public class PlayerController : MonoBehaviour
 
 	public void Jump ()
 	{
-		//TODO create ground check to prevent mid-air jumps
 		if (!inAir)
 		{
 			rb.AddForce( new Vector2( 0, thePlayer.GetJump() ) ); //applies jump force in upward direction
+			inAir = true; //mark player as midair
 		}
 		else
 		{
@@ -52,5 +53,10 @@ public class PlayerController : MonoBehaviour
 		{
 			//do nothing
 		}
+	}
+	
+	public void LandAlready () //public function that allows ground checker to remove mid-air flag
+	{
+		inAir = false;
 	}
 }
