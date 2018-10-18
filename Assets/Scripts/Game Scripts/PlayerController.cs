@@ -7,6 +7,9 @@ public class PlayerController : MonoBehaviour
 	//TODO Remove serialization after testing.
 	[SerializeField] private bool inAir = false;	//toggle for when player is mid-jump.
 	[SerializeField] private bool sliding = false;	//toggle for while player is mid-slide
+	private float slideTimer = 0f;
+	
+	[Tooltip("How long will the player slide?")] [SerializeField] float slideTime = 1f;
 	
 	//component holders
 	GameMaster gm; //TODO remove if unused
@@ -24,9 +27,15 @@ public class PlayerController : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		if (Input.GetKeyDown (KeyCode.Space)) //if spacebar is pressed: jump!
+		if (sliding)
 		{
-			Jump();
+			slideTimer += Time.deltaTime;
+			
+			if (slideTimer >= slideTime)
+			{
+				sliding = false;
+				slideTimer = 0f;
+			}
 		}
 	}
 
@@ -47,7 +56,9 @@ public class PlayerController : MonoBehaviour
 	{
 		if (!sliding)
 		{
-			//TODO create slide functionality
+			Debug.Log ("We're sliding!");
+			sliding = true;
+			//TODO slide animation
 		}
 		else
 		{
@@ -59,4 +70,5 @@ public class PlayerController : MonoBehaviour
 	{
 		inAir = false;
 	}
+	
 }
