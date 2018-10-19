@@ -8,16 +8,18 @@ public class GameMaster : MonoBehaviour
 	public GameObject deathCanvas; //reference for the game over text
 	
 	//inspector variables
-	[SerializeField] bool enableAcceleration = true; //toggle for gameSpeed acceleration
-	[SerializeField] float gameSpeed = 1.0f; //holder for current object speed, determines inital speed of startup
-	[SerializeField] float acceleration = 0.1f; //amount speed is increased per update
-	[SerializeField] float scoreTime = 1f; //timer variable for updating score
+	[Tooltip ("Initial Game Speed")] [SerializeField] float gameSpeed = 1.0f;
+	[Tooltip ("How often should the player's score increase")] [SerializeField] float scoreTime = 1f;
+	
+	[Header ("Accelerator Mode")]
+	[Tooltip ("Toggle passive game acceleration")] [SerializeField] bool enableAcceleration = true;
+	[Tooltip ("Speed Increase per Update")] [SerializeField] float acceleration = 0.1f;
 
 	//hidden variables
 	private int score = 0; //current score earned by player
 	private float scoreTimer = 0f; 
 	private float distance = 0f; //current distance travelled by player
-	private int floor = 1; //current floor player is on
+	private int floor = 0; //current floor player is on
 	private float curGameSpeed; //holder for current object speed, determines inital speed of startup
 
 	void Start ()
@@ -68,6 +70,11 @@ public class GameMaster : MonoBehaviour
 	public float Distance ()
 	{
 		return distance; //getter used for updating distance display
+	}
+	
+	public int Floor ()
+	{
+		return floor;
 	}
 	
 	public void Restart ()
