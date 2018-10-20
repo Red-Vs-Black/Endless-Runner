@@ -19,22 +19,29 @@ public class Creator : MonoBehaviour {
 	
 	void Update ()
 	{
-		if (gm.Floor () > (activeLevel + spawnPadding) || gm.Floor () < (activeLevel - spawnPadding)) //if player is not within range to start spawning
+		if (gm.Speed () > 0)
 		{
-			tracker = 0f; //reset the timer
-		}
-		
-		else //when player is within range
-		{
-			tracker += Time.deltaTime;	//increment the tracker by time passed between frames
-			
-			if (tracker >= spawnTime)	//if enough time has passed
+			if (gm.Floor () > (activeLevel + spawnPadding) || gm.Floor () < (activeLevel - spawnPadding)) //if player is not within range to start spawning
 			{
-				int spawnTarget = Random.Range(0, obstacles.Length);	//determine a random object to spawn
-				
-				Instantiate(obstacles[spawnTarget], transform.position, transform.rotation); //spawn the object at the creator
-				tracker = 0f;	//reset the timer
+				tracker = 0f; //reset the timer
 			}
+			
+			else //when player is within range
+			{
+				tracker += Time.deltaTime;	//increment the tracker by time passed between frames
+				
+				if (tracker >= spawnTime)	//if enough time has passed
+				{
+					int spawnTarget = Random.Range(0, obstacles.Length);	//determine a random object to spawn
+					
+					Instantiate(obstacles[spawnTarget], transform.position, transform.rotation); //spawn the object at the creator
+					tracker = 0f;	//reset the timer
+				}
+			}
+		}
+		else
+		{
+			tracker = 0f;
 		}
 	}
 }

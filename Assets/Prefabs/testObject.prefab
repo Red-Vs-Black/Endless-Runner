@@ -19,9 +19,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4139987377643544}
-  - component: {fileID: 114366013822062682}
   - component: {fileID: 50386911968146158}
   - component: {fileID: 58806153213263162}
+  - component: {fileID: 114225643925041506}
   m_Layer: 0
   m_Name: testObject
   m_TagString: Untagged
@@ -40,9 +40,10 @@ GameObject:
   - component: {fileID: 33363799676330830}
   - component: {fileID: 23485996358797884}
   - component: {fileID: 61268167447471404}
+  - component: {fileID: 114870752566552572}
   m_Layer: 0
   m_Name: testObject (1)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -150,7 +151,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 0.01
 --- !u!61 &61268167447471404
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -174,9 +175,9 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.9, y: 0.9}
   m_EdgeRadius: 0
---- !u!114 &114366013822062682
+--- !u!114 &114225643925041506
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -187,3 +188,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0385e4e1d8ad59b4a82c288ea63d108a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114870752566552572
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1777369542797106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dad85d800150204ea4ed5266adaa7ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1

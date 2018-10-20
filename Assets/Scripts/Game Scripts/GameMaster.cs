@@ -77,7 +77,7 @@ public class GameMaster : MonoBehaviour
 		return floor;
 	}
 	
-	public void Restart ()
+	public void Restart ()	//TODO remove if unused
 	{
 		deathCanvas.SetActive (false); //hide gameover text
 		//TODO delete all non-player entities
