@@ -69,7 +69,8 @@ public class Player : MonoBehaviour
 	{
 		deathCanvas.SetActive (true); //display game over text
 		gameObject.SetActive (false); //delete the player
-		gm.Stop(); //stop game
+		gm.Stop (); //stop game
+		gm.AddScore (gm.Score ());
 	}
 	
 }
