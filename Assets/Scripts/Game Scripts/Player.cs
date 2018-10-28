@@ -53,6 +53,16 @@ public class Player : MonoBehaviour
 		jumpPower += mod; //TODO remove if unused
 	}
 
+	public float GetSlide ()
+	{
+		return slideLength;
+	}
+
+	public void SetSlide (float mod) //modifies slide length by mod
+	{
+		slideLength += mod; //TODO remove if unused
+	}
+
 	public void ResetPosition () //function to return player to initial position
 	{
 		transform.position = startPosition;
